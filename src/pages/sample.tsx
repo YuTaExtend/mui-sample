@@ -96,8 +96,8 @@ export default function ButtonAppBar() {
         <AppBar
           position="fixed"
           sx={{
-            width: { lg: `calc(100% - ${drawerWidth}px)` },
-            ml: { lg: `${drawerWidth}px` },
+            width: { md: `calc(100% - ${drawerWidth}px)` },
+            ml: { md: `${drawerWidth}px` },
           }}
         >
           <Toolbar>
@@ -107,7 +107,7 @@ export default function ButtonAppBar() {
               color="inherit"
               aria-label="menu"
               onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { lg: "none" } }}
+              sx={{ mr: 2, display: { md: "none" } }}
             >
               <MenuIcon fontSize="small" />
             </IconButton>
@@ -135,8 +135,8 @@ export default function ButtonAppBar() {
 
       <Box
         component="nav"
-        sx={{ width: { lg: drawerWidth }, flexShrink: { lg: 0 } }}
-        aria-label="mailbox folders"
+        sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
+        aria-label="app menu"
       >
         <Drawer
           variant="temporary"
@@ -146,7 +146,7 @@ export default function ButtonAppBar() {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { md: "block", lg: "none" },
+            display: { sm: "block", md: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -158,7 +158,7 @@ export default function ButtonAppBar() {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: "none", md: "none", lg: "block" },
+            display: { xs: "none", md: "block" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
@@ -169,6 +169,11 @@ export default function ButtonAppBar() {
           {drawer}
         </Drawer>
       </Box>
+      <style jsx global>{`
+        body {
+          background-color: #f9fafc;
+        }
+      `}</style>
     </>
   );
 }
