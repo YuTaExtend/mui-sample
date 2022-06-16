@@ -25,6 +25,7 @@ import Head from "next/head";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import { theme } from "../../theme";
 
 export default function ButtonAppBar() {
   // 検索ボックス
@@ -97,14 +98,6 @@ export default function ButtonAppBar() {
       <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
     </Menu>
   );
-  const appBarTheme = createTheme({
-    palette: {
-      primary: {
-        main: "#fff",
-        contrastText: grey[600],
-      },
-    },
-  });
 
   // ドロワーメニュー
   const drawerWidth = 240;
@@ -147,12 +140,6 @@ export default function ButtonAppBar() {
       </List>
     </div>
   );
-  const drawerTheme = createTheme({
-    palette: { primary: { main: "#0c204b" }, divider: grey[600] },
-    typography: {
-      fontFamily: ["Petit Formal Script"].join(","),
-    },
-  });
 
   return (
     <>
@@ -160,55 +147,54 @@ export default function ButtonAppBar() {
         <title>Superforms</title>
       </Head>
       <Box sx={{ flexGrow: 1 }}>
-        <ThemeProvider theme={appBarTheme}>
-          <AppBar
-            position="fixed"
-            sx={{
-              width: { md: `calc(100% - ${drawerWidth}px)` },
-              ml: { md: `${drawerWidth}px` },
-            }}
-          >
-            <Toolbar>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { md: "none" } }}
-              >
-                <MenuIcon fontSize="small" />
-              </IconButton>
-              <Box sx={{ flexGrow: 1 }} />
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ "aria-label": "search" }}
-                />
-              </Search>
-              <IconButton size="large" color="inherit">
-                <Badge badgeContent={17} color="error">
-                  <NotificationsIcon fontSize="small" />
-                </Badge>
-              </IconButton>
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-            </Toolbar>
-          </AppBar>
-          {renderMenu}
-        </ThemeProvider>
+        <AppBar
+          position="fixed"
+          color="secondary"
+          sx={{
+            width: { md: `calc(100% - ${drawerWidth}px)` },
+            ml: { md: `${drawerWidth}px` },
+          }}
+        >
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { md: "none" } }}
+            >
+              <MenuIcon fontSize="small" />
+            </IconButton>
+            <Box sx={{ flexGrow: 1 }} />
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+            <IconButton size="large" color="inherit">
+              <Badge badgeContent={17} color="error">
+                <NotificationsIcon fontSize="small" />
+              </Badge>
+            </IconButton>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        {renderMenu}
       </Box>
 
       <Box
@@ -216,50 +202,48 @@ export default function ButtonAppBar() {
         sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
         aria-label="app menu"
       >
-        <ThemeProvider theme={drawerTheme}>
-          <Drawer
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-            sx={{
-              display: { sm: "block", md: "none" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: drawerWidth,
-              },
-            }}
-            PaperProps={{
-              sx: {
-                backgroundColor: drawerTheme.palette.primary.main,
-                color: drawerTheme.palette.primary.contrastText,
-              },
-            }}
-          >
-            {drawer}
-          </Drawer>
-          <Drawer
-            variant="permanent"
-            sx={{
-              display: { xs: "none", md: "block" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: drawerWidth,
-              },
-            }}
-            open
-            PaperProps={{
-              sx: {
-                backgroundColor: drawerTheme.palette.primary.main,
-                color: drawerTheme.palette.primary.contrastText,
-              },
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </ThemeProvider>
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { sm: "block", md: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+          PaperProps={{
+            sx: {
+              backgroundColor: theme.palette.primary.main,
+              color: theme.palette.primary.contrastText,
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: "none", md: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+          open
+          PaperProps={{
+            sx: {
+              backgroundColor: theme.palette.primary.main,
+              color: theme.palette.primary.contrastText,
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
       </Box>
     </>
   );
