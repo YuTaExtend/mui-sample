@@ -1,17 +1,10 @@
-import { grey } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
-export const theme = createTheme({
+export const basicTheme = createTheme({
   /* ここにテーマを記述 */
-  components: {
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "white",
-          color: grey[600],
-        },
-      },
+  palette: {
+    background: {
+      default: "#f9fafc",
     },
   },
-  palette: { mode: "dark" },
 });
