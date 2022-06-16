@@ -1,5 +1,5 @@
 import { grey } from "@mui/material/colors";
-import { createTheme } from "@mui/material/styles";
+import { alpha, createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
   /* ここにテーマを記述 */
@@ -9,7 +9,7 @@ export const theme = createTheme({
       main: "#fff",
       contrastText: grey[600],
     },
-    divider: grey[600],
+    divider: alpha(grey[500], 0.4),
     background: {
       default: "#f9fafc",
     },

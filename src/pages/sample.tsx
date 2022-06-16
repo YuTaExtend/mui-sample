@@ -18,9 +18,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Drawer from "@mui/material/Drawer";
-import { createTheme } from "@mui/material/styles";
-import { ThemeProvider, Typography } from "@mui/material";
-import { grey } from "@mui/material/colors";
+import { Typography } from "@mui/material";
 import Head from "next/head";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
@@ -32,9 +30,9 @@ export default function ButtonAppBar() {
   const Search = styled("div")(({ theme }) => ({
     position: "relative",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.grey[400], 0.15),
+    backgroundColor: alpha(theme.palette.grey[500], 0.15),
     "&:hover": {
-      backgroundColor: alpha(theme.palette.grey[400], 0.25),
+      backgroundColor: alpha(theme.palette.grey[500], 0.25),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -100,7 +98,7 @@ export default function ButtonAppBar() {
   );
 
   // ドロワーメニュー
-  const drawerWidth = 240;
+  const drawerWidth = 270;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -114,20 +112,18 @@ export default function ButtonAppBar() {
       </Toolbar>
       <Divider />
       <List>
-        {["ダッシュボード", "企業", "取引", "タスク"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon sx={{ color: "#fff" }}>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["月次報告", "経費", "チーム"].map((text, index) => (
+        {[
+          "ダッシュボード",
+          "取引先",
+          "取引",
+          "タスク",
+          "打刻 / 日報",
+          "月報 / MBO",
+          "資材管理",
+          "経費申請",
+          "労務申請",
+          "チーム",
+        ].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon sx={{ color: "#fff" }}>
