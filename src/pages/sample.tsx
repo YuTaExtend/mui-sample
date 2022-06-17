@@ -55,7 +55,6 @@ export default function ButtonAppBar() {
     color: "inherit",
     "& .MuiInputBase-input": {
       padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create("width"),
       width: "100%",
@@ -91,9 +90,9 @@ export default function ButtonAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>アカウント設定</MenuItem>
       <Divider />
-      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+      <MenuItem onClick={handleMenuClose}>ログアウト</MenuItem>
     </Menu>
   );
 
@@ -118,11 +117,11 @@ export default function ButtonAppBar() {
           "取引",
           "タスク",
           "打刻 / 日報",
-          "月報 / MBO",
-          "資材管理",
+          "月報 / 目標管理",
+          "チーム管理",
+          "リソース管理",
           "経費申請",
           "労務申請",
-          "チーム",
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
@@ -203,7 +202,7 @@ export default function ButtonAppBar() {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { sm: "block", md: "none" },
