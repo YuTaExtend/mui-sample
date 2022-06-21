@@ -10,13 +10,21 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import { AccountCircle } from "@mui/icons-material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import HomeIcon from "@mui/icons-material/Home";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import ApartmentIcon from "@mui/icons-material/Apartment";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import NoteAltIcon from "@mui/icons-material/NoteAlt";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import SportsScoreIcon from "@mui/icons-material/SportsScore";
+import GroupsIcon from "@mui/icons-material/Groups";
+import LaptopChromebookIcon from "@mui/icons-material/LaptopChromebook";
+import CurrencyYenIcon from "@mui/icons-material/CurrencyYen";
+import ApprovalIcon from "@mui/icons-material/Approval";
 import Drawer from "@mui/material/Drawer";
 import { Typography } from "@mui/material";
 import Head from "next/head";
@@ -110,29 +118,94 @@ export default function ButtonAppBar() {
         </Typography>
       </Toolbar>
       <Divider />
-      <List>
-        {[
-          "ダッシュボード",
-          "取引先",
-          "取引",
-          "タスク",
-          "打刻 / 日報",
-          "月報 / 目標管理",
-          "チーム管理",
-          "リソース管理",
-          "経費申請",
-          "労務申請",
-        ].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon sx={{ color: "#fff" }}>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary="ホーム" />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <BarChartIcon />
+          </ListItemIcon>
+          <ListItemText primary="ダッシュボード" />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <ApartmentIcon />
+          </ListItemIcon>
+          <ListItemText primary="取引先" />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <ShoppingCartIcon />
+          </ListItemIcon>
+          <ListItemText primary="取引" />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <NoteAltIcon />
+          </ListItemIcon>
+          <ListItemText primary="プロジェクト管理" />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <AccessTimeFilledIcon />
+          </ListItemIcon>
+          <ListItemText primary="打刻 / 勤怠管理" />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <SportsScoreIcon />
+          </ListItemIcon>
+          <ListItemText primary="月報 / 目標管理" />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <GroupsIcon />
+          </ListItemIcon>
+          <ListItemText primary="チーム管理" />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <LaptopChromebookIcon />
+          </ListItemIcon>
+          <ListItemText primary="リソース管理" />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <CurrencyYenIcon />
+          </ListItemIcon>
+          <ListItemText primary="経費申請" />
+        </ListItemButton>
+      </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton>
+          <ListItemIcon sx={{ color: "#fff" }}>
+            <ApprovalIcon />
+          </ListItemIcon>
+          <ListItemText primary="労務申請" />
+        </ListItemButton>
+      </ListItem>
     </div>
   );
 
